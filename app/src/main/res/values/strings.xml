@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">MiBaseDeDatos</string>
+
+    <string-array name="tipo_de_adeudo">
+        <item>Comida</item>
+        <item>Renta</item>
+    </string-array>
+    <string-array name="estado_de_adeudo">
+        <item>Pendiente de pago</item>
+        <item>Pagado</item>
+    </string-array>
 </resources>
