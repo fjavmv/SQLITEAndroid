@@ -5,36 +5,71 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:fitsSystemWindows="true"
     tools:context=".view.AdeudoActivity">
 
-    <!---
-    "id_cliente" //Query para jalar NOMBRES y id
-	"tipo_adeudo"
-	"monto_adeudo"
-	"fecha_adeudo"
-	"estado_adeudo"
-	"descripcion"
-    -->
-
-    <androidx.appcompat.widget.AppCompatSpinner
-        android:id="@+id/nombre_clientes"
+   <!--<Spinner
+        android:id="@+id/spinner_nombre_clientes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
-        android:contentDescription="Opciones"
-        android:minHeight="48dp" />
+        android:minHeight="48dp" /> -->
 
-    <androidx.appcompat.widget.AppCompatSpinner
-        android:id="@+id/tipo_adeudo"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerNombresCLientes"
+        android:layout_width="match_parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_height="80dp"
+        android:scrollbars="vertical"/>
+
+
+    <!--<Spinner
+        android:id="@+id/spinner_tipo_adeudo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="8dp"
-        android:contentDescription="Opciones"
-        android:minHeight="48dp" />
+        android:minHeight="48dp" />-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_layout_cliente_seleccionado"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:hint="Nombre cliente">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_nombre_cliente_adeudo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textColorHint="#757575" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_layout_tipo_adeudo"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:hint="Tipo de adeudo">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_tipo_adeudo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textColorHint="#757575" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/text_input_layout_monto_adeudo"
@@ -43,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:hint="Monto de adeudo">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -61,26 +96,25 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:hint="Fecha">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_fecha_adeudo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:focusable="false"
             android:inputType="date"
-            android:textColorHint="#757575" />
+            android:textColorHint="#757575"
+            android:focusable="false" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <androidx.appcompat.widget.AppCompatSpinner
-        android:id="@+id/estado_adeudo"
+    <Spinner
+        android:id="@+id/spinner_estado_adeudo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"
-        android:contentDescription="Opciones"
+        android:layout_marginTop="16dp"
         android:minHeight="48dp" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -90,7 +124,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:hint="Descipción">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -99,13 +133,13 @@
             android:layout_height="wrap_content"
             android:gravity="top|start"
             android:inputType="textMultiLine"
-            android:lines="8"
-            android:padding="16dp"
+            android:lines="4"
+            android:padding="10dp"
             android:textColorHint="#757575" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_guardar"
+        android:id="@+id/btn_guardarAdeudo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -114,14 +148,5 @@
         android:text="Guardar"
         android:textAllCaps="false" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_cancelar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Cancelar"
-        android:textAllCaps="false" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -1,15 +1,15 @@
 package com.example.mibasededatos.entidades;
 
-public class Adeudo {
-    private int idAdeudo;
-    private Cliente idCLiente;
+public class AdeudoDto {
+    private long idAdeudo;
+    private long idCLiente;
     private String tipoAdeudo;
     private double montoAdeudo;
     private String fechaAdeudo;
     private String estadoAdeudo;
     private String descripcion;
 
-    public Adeudo(int idAdeudo, Cliente idCLiente, String tipoAdeudo, double montoAdeudo, String fechaAdeudo, String estadoAdeudo, String descripcion) {
+    public AdeudoDto(long idAdeudo, long idCLiente, String tipoAdeudo, double montoAdeudo, String fechaAdeudo, String estadoAdeudo, String descripcion) {
         this.idAdeudo = idAdeudo;
         this.idCLiente = idCLiente;
         this.tipoAdeudo = tipoAdeudo;
@@ -19,19 +19,29 @@ public class Adeudo {
         this.descripcion = descripcion;
     }
 
-    public int getIdAdeudo() {
+    public AdeudoDto(long idCLiente, String tipoAdeudo, double montoAdeudo, String fechaAdeudo, String estadoAdeudo, String descripcion) {
+
+        this.idCLiente = idCLiente;
+        this.tipoAdeudo = tipoAdeudo;
+        this.montoAdeudo = montoAdeudo;
+        this.fechaAdeudo = fechaAdeudo;
+        this.estadoAdeudo = estadoAdeudo;
+        this.descripcion = descripcion;
+    }
+
+    public long getIdAdeudo() {
         return idAdeudo;
     }
 
-    public void setIdAdeudo(int idAdeudo) {
+    public void setIdAdeudo(long idAdeudo) {
         this.idAdeudo = idAdeudo;
     }
 
-    public Cliente getIdCLiente() {
+    public long getIdCLiente() {
         return idCLiente;
     }
 
-    public void setIdCLiente(Cliente idCLiente) {
+    public void setIdCLiente(long idCLiente) {
         this.idCLiente = idCLiente;
     }
 
@@ -77,14 +87,8 @@ public class Adeudo {
 
     @Override
     public String toString() {
-        return "Adeudo{" +
-                "idAdeudo=" + idAdeudo +
-                ", idCLiente=" + idCLiente +
-                ", tipoAdeudo='" + tipoAdeudo + '\'' +
-                ", montoAdeudo=" + montoAdeudo +
-                ", fechaAdeudo='" + fechaAdeudo + '\'' +
-                ", estadoAdeudo='" + estadoAdeudo + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                '}';
+        return
+                idAdeudo + " " +idCLiente + " " + tipoAdeudo +
+                        " " + montoAdeudo + " " + fechaAdeudo + " " + estadoAdeudo + " " + descripcion;
     }
 }

@@ -1,21 +1,26 @@
 package com.example.mibasededatos.entidades;
 
-public class Correo {
-    private int idCorreo;
+public class CorreoDto {
+    private long idCorreo;
     private String correo;
-    private Cliente idCLiente;
+    private long idCLiente;
 
-    public Correo(int idCorreo, String correo, Cliente idCLiente) {
+    public CorreoDto(long idCorreo, String correo, long idCLiente) {
         this.idCorreo = idCorreo;
         this.correo = correo;
         this.idCLiente = idCLiente;
     }
+    public CorreoDto(String correo, long idCLiente) {
+        this.correo = correo;
+        this.idCLiente = idCLiente;
+    }
 
-    public int getIdCorreo() {
+
+    public long getIdCorreo() {
         return idCorreo;
     }
 
-    public void setIdCorreo(int idCorreo) {
+    public void setIdCorreo(long idCorreo) {
         this.idCorreo = idCorreo;
     }
 
@@ -27,11 +32,11 @@ public class Correo {
         this.correo = correo;
     }
 
-    public Cliente getIdCLiente() {
+    public long getIdCLiente() {
         return idCLiente;
     }
 
-    public void setIdCLiente(Cliente idCLiente) {
+    public void setIdCLiente(long idCLiente) {
         this.idCLiente = idCLiente;
     }
 
