@@ -1,6 +1,4 @@
 package com.example.mibasededatos.daos;
-
-import android.app.DownloadManager;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -32,7 +30,7 @@ public class DaoAdeudoImp extends DbHelper implements IDaoAdeudo {
             values.put("fecha_adeudo",adeudoDto.getFechaAdeudo());
             values.put("estado_adeudo",adeudoDto.getEstadoAdeudo());
             values.put("descripcion",adeudoDto.getDescripcion());
-            values.put("update_at",DbQuerysAdeudo.UPDATE_AT);
+            values.put("update_at",adeudoDto.getUpdateAt());
             id = db.insert(DbQuerysAdeudo.TABLE_NAME_ADEUDOS,null,values);
         }catch (Exception ex){
             Toast.makeText(context.getApplicationContext(),ex.getMessage(),Toast.LENGTH_SHORT).show();

@@ -23,11 +23,14 @@ import com.example.mibasededatos.daos.IDaoAdeudo;
 import com.example.mibasededatos.daos.IDaoCliente;
 import com.example.mibasededatos.entidades.AdeudoDto;
 import com.example.mibasededatos.entidades.ClienteDto;
+import com.example.mibasededatos.view.dialog.DatePickerFragment;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 
 
-public class AdeudoActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, IAdeudoActivityVIew {
+public class AdeudoActivity extends AppCompatActivity implements IAdeudoActivityVIew{
+        //implements DatePickerDialog.OnDateSetListener, IAdeudoActivityVIew {
 
     //private Spinner spinnerCLiente;
    // private Spinner spinnerTipoAdeudo;
@@ -49,6 +52,7 @@ public class AdeudoActivity extends AppCompatActivity implements DatePickerDialo
    // private final String [] estadoAdeudo = {"Pediente de pago", "Pagado"};
     private long id;
     private String estadoAdeudo;
+    private String fechaActual;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +87,8 @@ public class AdeudoActivity extends AppCompatActivity implements DatePickerDialo
         editTextFecha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mostrarCalendario();
+                //mostrarCalendario();
+                showDatePickerDialog();
             }
         });
     }
@@ -137,22 +142,15 @@ public class AdeudoActivity extends AppCompatActivity implements DatePickerDialo
         });
     }*/
 
-    private void mostrarCalendario(){
-        DatePickerDialog  datePickerDialog = new DatePickerDialog(this,R.style.DatePickerStyle, this,
-                Calendar.getInstance().get(Calendar.YEAR),
-                Calendar.getInstance().get(Calendar.MONTH),
-                Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
-        datePickerDialog.show();
-    }
-
     private void clickGUardar() {
 
         buttonGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String fechaActual = twoDigits(DatePickerFragment.day) + "-" + twoDigits(DatePickerFragment.month + 1) + "-" + DatePickerFragment.year;
                 AdeudoDto adeudoDto = new AdeudoDto(id, editTextTipoDeAdeudo.getText().toString(),
                         Double.parseDouble(editTextMontoDeAdeudo.getText().toString()), editTextFecha.getText().toString(),
-                        estadoAdeudo, editTextDescripcion.getText().toString());
+                        estadoAdeudo, editTextDescripcion.getText().toString(),fechaActual);
                // mostrarToast(adeudoDto.toString());
                 long idAdeudo = registrarNuevoAdeudo(adeudoDto);
                 if (idAdeudo > 0) {
@@ -165,16 +163,35 @@ public class AdeudoActivity extends AppCompatActivity implements DatePickerDialo
         limpiarCampos();
     }
 
+  /*  private void mostrarCalendario(){
+        DatePickerDialog  datePickerDialog = new DatePickerDialog(this,R.style.DatePickerStyle, this,
+                Calendar.getInstance().get(Calendar.YEAR),
+                Calendar.getInstance().get(Calendar.MONTH),
+                Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.show();
+    }
     @Override
     public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
         String date = dayOfMonth +"-"+ month + 1 + "-" + year;
         editTextFecha.setText(date);
+    }*/
+
+    private String twoDigits(int n) {
+        return (n<=9) ? ("0"+n) : String.valueOf(n);
     }
 
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-        super.onPointerCaptureChanged(hasCapture);
+    private void showDatePickerDialog(){
+        DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                final  String diaSeleccionado = twoDigits(dayOfMonth) + "-" + twoDigits(month + 1) + "-" + year;
+                editTextFecha.setText(diaSeleccionado);
+            }
+        });
+        newFragment.show(this.getSupportFragmentManager(),"datePicker");
     }
+
+
 
     @Override
     public long registrarNuevoAdeudo(AdeudoDto adeudoDto) {

@@ -57,6 +57,7 @@ public class DaoClienteImp extends DbHelper implements IDaoCliente {
             listaClienteDtos.add(clienteDto);
         }
         return listaClienteDtos;
+
     }
 
 }

@@ -8,6 +8,7 @@ public class AdeudoDto {
     private String fechaAdeudo;
     private String estadoAdeudo;
     private String descripcion;
+    private String updateAt;
 
     public AdeudoDto(long idAdeudo, long idCLiente, String tipoAdeudo, double montoAdeudo, String fechaAdeudo, String estadoAdeudo, String descripcion) {
         this.idAdeudo = idAdeudo;
@@ -19,15 +20,16 @@ public class AdeudoDto {
         this.descripcion = descripcion;
     }
 
-    public AdeudoDto(long idCLiente, String tipoAdeudo, double montoAdeudo, String fechaAdeudo, String estadoAdeudo, String descripcion) {
-
+    public AdeudoDto(long idCLiente, String tipoAdeudo, double montoAdeudo, String fechaAdeudo, String estadoAdeudo, String descripcion, String updateAt) {
         this.idCLiente = idCLiente;
         this.tipoAdeudo = tipoAdeudo;
         this.montoAdeudo = montoAdeudo;
         this.fechaAdeudo = fechaAdeudo;
         this.estadoAdeudo = estadoAdeudo;
         this.descripcion = descripcion;
+        this.updateAt = updateAt;
     }
+
 
     public long getIdAdeudo() {
         return idAdeudo;
@@ -83,6 +85,14 @@ public class AdeudoDto {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public String getUpdateAt() {
+        return updateAt;
+    }
+
+    public void setUpdateAt(String updateAt) {
+        this.updateAt = updateAt;
     }
 
     @Override

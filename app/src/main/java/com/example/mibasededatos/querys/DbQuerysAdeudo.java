@@ -16,6 +16,6 @@ public class DbQuerysAdeudo {
             ");";
     public static String ELIMINAR_TABLA_ADEUDOS = "DROP TABLE adeudos_de_clientes;";
     public static String TABLE_NAME_ADEUDOS = "adeudos_de_clientes";
-    public static String UPDATE_AT = "DATETIME('now');";
+    //public static String UPDATE_AT = "DATETIME('now');";
 
 }

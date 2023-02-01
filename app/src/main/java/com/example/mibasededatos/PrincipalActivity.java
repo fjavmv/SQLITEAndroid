@@ -1,4 +1,4 @@
-package com.example.mibasededatos.view;
+package com.example.mibasededatos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,12 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.mibasededatos.R;
 import com.example.mibasededatos.view.AdeudoActivity;
 import com.example.mibasededatos.view.ClienteActivity;
 import com.example.mibasededatos.view.ConsultarActivity;
 
-public class MainActivity extends AppCompatActivity{
+public class PrincipalActivity extends AppCompatActivity {
     /*private EditText mEditTextTitulo;
     private EditText mEditTextFecha; // campo a enlazar con el DatePicker
     private EditText mEditTextContenido;
@@ -24,7 +23,7 @@ public class MainActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_principal);
 
         mButtonRegistrarCliente = findViewById(R.id.btn_registra_cliente);
         mButtonRegistrarAdeudo = findViewById(R.id.btn_registra_adeudo);
