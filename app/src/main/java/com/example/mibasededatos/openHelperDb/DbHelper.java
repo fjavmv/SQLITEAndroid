@@ -17,7 +17,6 @@ public class DbHelper extends SQLiteOpenHelper {
         super(context,DbQuerysCliente.DATABASE_NAME, null, DbQuerysCliente.DATABASE_VERSION);
     }
 
-
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(DbQuerysCliente.TABLE_CLIENTES);
