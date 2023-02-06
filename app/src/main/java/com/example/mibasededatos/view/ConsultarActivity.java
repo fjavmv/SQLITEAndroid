@@ -1,6 +1,8 @@
 package com.example.mibasededatos.view;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,12 +21,14 @@ public class ConsultarActivity extends AppCompatActivity implements IConsultarAc
 
     private RecyclerView recyclerView;
     private ArrayList<ConsultaClienteAdeudoDto> listaClienteAdeudo;
+    private AdapterConsultaClienteAdeudo adapterDatos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consultar);
         recyclerView = findViewById(R.id.rViewConsulta);
         construirRecyclerElementos();
+        deslizar();
 
     }
 
@@ -40,7 +44,7 @@ public class ConsultarActivity extends AppCompatActivity implements IConsultarAc
         listaClienteAdeudo = new ArrayList<>();
         listaClienteAdeudo = consultarAdeudosClientes();
         recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
-        AdapterConsultaClienteAdeudo adapterDatos = new AdapterConsultaClienteAdeudo(listaClienteAdeudo);
+        adapterDatos = new AdapterConsultaClienteAdeudo(listaClienteAdeudo);
         recyclerView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,4 +55,23 @@ public class ConsultarActivity extends AppCompatActivity implements IConsultarAc
         });
         recyclerView.setAdapter(adapterDatos);
     }
+
+    public void deslizar(){
+        ItemTouchHelper.SimpleCallback callback = new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                listaClienteAdeudo.remove(viewHolder.getAdapterPosition());
+                adapterDatos.notifyItemRemoved(viewHolder.getAdapterPosition());
+            }
+        };
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(callback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
+    }
+
 }

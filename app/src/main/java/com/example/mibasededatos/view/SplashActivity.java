@@ -1,12 +1,11 @@
 package com.example.mibasededatos.view;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.WindowManager;
 
-import com.example.mibasededatos.PrincipalActivity;
 import com.example.mibasededatos.R;
 
 import java.util.Timer;
@@ -17,6 +16,11 @@ public class SplashActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Si la versión android es mayor que Jellybean, usa este llamado para esconder la barra de estatus.
+        if (Build.VERSION.SDK_INT > 25) {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
         setContentView(R.layout.activity_splash);
 
         TimerTask tarea = new TimerTask() {
