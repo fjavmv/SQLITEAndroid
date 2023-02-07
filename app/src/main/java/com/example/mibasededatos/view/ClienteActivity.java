@@ -86,7 +86,6 @@ public class ClienteActivity extends AppCompatActivity implements IClienteActivi
         apellidoM.setText("");
         numeroTel.setText("");
         email.setText("");
-        nombre.setFocusable(true);
     }
 
     private void mostrarToast(String mensaje){

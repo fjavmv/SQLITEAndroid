@@ -9,22 +9,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mibasededatos.R;
 import com.example.mibasededatos.adapter.AdapterConsultaClienteAdeudo;
 import com.example.mibasededatos.daos.DaoConsultaClienteAdeudo;
 import com.example.mibasededatos.daos.IDaoConsultaClienteAdeudo;
-import com.example.mibasededatos.entidades.AdeudoDto;
 import com.example.mibasededatos.entidades.ConsultaClienteAdeudoDto;
-import com.example.mibasededatos.view.dialog.DatePickerFragment;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
-public class ConsultarActivity extends AppCompatActivity implements IConsultarActivity {
+public class ConsultarAdeudosAdeudosActivity extends AppCompatActivity implements IConsultarAdeudosActivity {
 
     private RecyclerView recyclerView;
     private ArrayList<ConsultaClienteAdeudoDto> listaClienteAdeudo;
@@ -48,7 +45,7 @@ public class ConsultarActivity extends AppCompatActivity implements IConsultarAc
     @Override
     public long actualizarEstadoDeAdeudo(ConsultaClienteAdeudoDto consultaClienteAdeudoDto) {
         long fila= 0;
-        IDaoConsultaClienteAdeudo daoConsultaClienteAdeudo = new DaoConsultaClienteAdeudo(ConsultarActivity.this);
+        IDaoConsultaClienteAdeudo daoConsultaClienteAdeudo = new DaoConsultaClienteAdeudo(ConsultarAdeudosAdeudosActivity.this);
         daoConsultaClienteAdeudo.actualizarEstadoDeAdeudo(consultaClienteAdeudoDto);
         return fila;
     }
@@ -84,7 +81,7 @@ public class ConsultarActivity extends AppCompatActivity implements IConsultarAc
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 int pos = viewHolder.getAdapterPosition();
-                Toast.makeText(getApplicationContext(),"Position: "+ pos,Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(getApplicationContext(),"Position: "+ pos,Toast.LENGTH_SHORT).show();
                 if (pos >= 0 && pos <= (size-1))
                 {
                     getId(pos);
@@ -99,7 +96,7 @@ public class ConsultarActivity extends AppCompatActivity implements IConsultarAc
     }
 
     private void getId(int pos){
-        Toast.makeText(getApplicationContext(),"Elemento: "+ listaClienteAdeudo.get(pos).getIdAdeudo(),Toast.LENGTH_SHORT).show();
+       // Toast.makeText(getApplicationContext(),"Elemento: "+ listaClienteAdeudo.get(pos).getIdAdeudo(),Toast.LENGTH_SHORT).show();
         long response = actualizarEstadoDeAdeudo(setData(listaClienteAdeudo.get(pos).getIdAdeudo()));
         if (response!= 0){
             Toast.makeText(getApplicationContext(),"No se realizo la operación..",Toast.LENGTH_SHORT).show();
@@ -114,7 +111,5 @@ public class ConsultarActivity extends AppCompatActivity implements IConsultarAc
         String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
         return new ConsultaClienteAdeudoDto(id,estadoDePago,date);
     }
-
-
 
 }

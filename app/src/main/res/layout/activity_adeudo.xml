@@ -133,7 +133,7 @@
             android:layout_height="wrap_content"
             android:gravity="top|start"
             android:inputType="textMultiLine"
-            android:lines="4"
+            android:lines="2"
             android:padding="10dp"
             android:textColorHint="#757575" />
     </com.google.android.material.textfield.TextInputLayout>

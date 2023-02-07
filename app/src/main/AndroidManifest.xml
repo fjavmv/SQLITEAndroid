@@ -34,7 +34,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".view.ConsultarActivity"
+            android:name=".view.ConsultarAdeudosAdeudosActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize">
             <meta-data

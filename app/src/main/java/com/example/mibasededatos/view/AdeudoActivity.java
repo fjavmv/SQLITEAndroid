@@ -122,7 +122,7 @@ public class AdeudoActivity extends AppCompatActivity implements IAdeudoActivity
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 estadoAdeudo = spinnerEstadoDePago.getSelectedItem().toString();
-                mostrarToast(estadoAdeudo);
+              //  mostrarToast(estadoAdeudo);
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
@@ -222,7 +222,7 @@ public class AdeudoActivity extends AppCompatActivity implements IAdeudoActivity
             public void onClick(View view) {
                 id = listaCLiente.get(recyclerViewCLientes.getChildAdapterPosition(view)).getIdCliente() ;
                 editTextNombreCLiente.setText(listaCLiente.get((int)id-1).toString());
-                mostrarToast("id:"+ id);
+             //   mostrarToast("id:"+ id);
             }
         });
         recyclerViewCLientes.setAdapter(adapterDatos);

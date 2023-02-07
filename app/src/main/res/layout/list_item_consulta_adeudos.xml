@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:id="@+id/lista_recientes">
 
@@ -24,17 +24,18 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:background="#5581D4FA">
 
             <ImageView
                 android:id="@+id/imgvFondo"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_baseline_app_registration_24"
+                android:src="@drawable/deuda"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -42,15 +43,15 @@
 
             <TextView
                 android:id="@+id/txtNombreCLiente"
-                android:layout_width="272dp"
-                android:layout_height="26dp"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:text="Nombre"
                 android:textAlignment="textStart"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 app:layout_constraintBottom_toTopOf="@+id/txtTipoAdeudo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -59,29 +60,29 @@
 
             <TextView
                 android:id="@+id/txtTipoAdeudo"
-                android:layout_width="272dp"
-                android:layout_height="26dp"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="8dp"
                 android:text="Alimentos"
                 android:textAlignment="textStart"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 app:layout_constraintStart_toEndOf="@+id/imgvFondo"
                 app:layout_constraintTop_toBottomOf="@+id/txtNombreCLiente" />
 
             <TextView
                 android:id="@+id/txtPrecio"
-                android:layout_width="272dp"
-                android:layout_height="26dp"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="64dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginBottom="4dp"
                 android:text="Precio"
                 android:textAlignment="textStart"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 app:layout_constraintBottom_toTopOf="@+id/txtFechaAdeudo"
                 app:layout_constraintStart_toEndOf="@+id/imgvFondo"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/txtTipoAdeudo" />
 
             <TextView
                 android:id="@+id/txtFechaAdeudo"
@@ -89,10 +90,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="11/11/2022"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imgvFondo"
-                app:layout_constraintTop_toBottomOf="@+id/txtPrecio" />
+                app:layout_constraintStart_toEndOf="@+id/imgvFondo" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
