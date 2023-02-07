@@ -19,8 +19,10 @@ import com.example.mibasededatos.R;
 import com.example.mibasededatos.adapter.AdapterClientesRecycler;
 import com.example.mibasededatos.daos.DaoAdeudoImp;
 import com.example.mibasededatos.daos.DaoClienteImp;
+import com.example.mibasededatos.daos.DaoConsultaClienteAdeudo;
 import com.example.mibasededatos.daos.IDaoAdeudo;
 import com.example.mibasededatos.daos.IDaoCliente;
+import com.example.mibasededatos.daos.IDaoConsultaClienteAdeudo;
 import com.example.mibasededatos.entidades.AdeudoDto;
 import com.example.mibasededatos.entidades.ClienteDto;
 import com.example.mibasededatos.view.dialog.DatePickerFragment;
@@ -89,6 +91,7 @@ public class AdeudoActivity extends AppCompatActivity implements IAdeudoActivity
             public void onClick(View view) {
                 //mostrarCalendario();
                 showDatePickerDialog();
+
             }
         });
     }
@@ -224,6 +227,7 @@ public class AdeudoActivity extends AppCompatActivity implements IAdeudoActivity
         });
         recyclerViewCLientes.setAdapter(adapterDatos);
     }
+
 
     private void limpiarCampos(){
         editTextNombreCLiente.setText("");

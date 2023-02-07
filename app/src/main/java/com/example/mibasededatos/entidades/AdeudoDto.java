@@ -29,6 +29,11 @@ public class AdeudoDto {
         this.descripcion = descripcion;
         this.updateAt = updateAt;
     }
+    public  AdeudoDto(long idAdeudo, String estadoAdeudo, String updateAt){
+        this.idAdeudo = idAdeudo;
+        this.estadoAdeudo = estadoAdeudo;
+        this.updateAt = updateAt;
+    }
 
 
     public long getIdAdeudo() {
