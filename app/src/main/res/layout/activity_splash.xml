@@ -9,7 +9,7 @@
     tools:context=".view.SplashActivity">
 
     <TextView
-        android:text="Administración de gastos"
+        android:text="Control de pagos"
         android:textStyle="bold"
         android:textSize="30sp"
         android:layout_marginBottom="100dp"
@@ -19,7 +19,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/register"/>
+        android:src="@drawable/adeudo"/>
 
     <ProgressBar
         android:id="@+id/progresbar"

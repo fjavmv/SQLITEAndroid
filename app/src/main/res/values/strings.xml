@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Adminitración adeudos</string>
+    <string name="app_name">Control de pagos</string>
 
     <string-array name="tipo_de_adeudo">
         <item>Comida</item>

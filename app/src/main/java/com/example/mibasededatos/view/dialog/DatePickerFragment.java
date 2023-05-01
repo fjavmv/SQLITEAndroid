@@ -19,6 +19,7 @@ public class DatePickerFragment extends DialogFragment {
     public static int year;
 
     private DatePickerDialog.OnDateSetListener listener;
+
     public static DatePickerFragment newInstance(DatePickerDialog.OnDateSetListener listener){
         DatePickerFragment fragment = new DatePickerFragment();
         fragment.setListener(listener);
@@ -28,7 +29,6 @@ public class DatePickerFragment extends DialogFragment {
     private void setListener(DatePickerDialog.OnDateSetListener listener) {
         this.listener = listener;
     }
-
 
     @NonNull
     @Override

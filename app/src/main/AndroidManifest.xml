@@ -13,8 +13,10 @@
         android:theme="@style/Theme.MiBaseDeDatos"
         tools:targetApi="31">
         <activity
-            android:name=".PrincipalActivity"
-            android:exported="false">
+            android:name=".view.PrincipalActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -22,7 +24,8 @@
         <activity
             android:name=".view.SplashActivity"
             android:exported="true"
-            android:theme="@android:style/Theme.DeviceDefault.NoActionBar.Fullscreen">
+            android:screenOrientation="portrait"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,27 +37,32 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".view.ConsultarActivity"
+            android:name=".view.ConsultarAdeudosAdeudosActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize">
+            android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="portrait"
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.mibasededatos.PrincipalActivity" />
+                android:value="com.example.mibasededatos.view.PrincipalActivity" />
         </activity>
         <activity
             android:name=".view.AdeudoActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize">
+            android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.mibasededatos.PrincipalActivity" />
+                android:value="com.example.mibasededatos.view.PrincipalActivity" />
         </activity>
         <activity
             android:name=".view.ClienteActivity"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="portrait"
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.mibasededatos.PrincipalActivity" />
+                android:value="com.example.mibasededatos.view.PrincipalActivity" />
         </activity>
     </application>
 

@@ -1,4 +1,4 @@
-package com.example.mibasededatos;
+package com.example.mibasededatos.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,9 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.mibasededatos.view.AdeudoActivity;
-import com.example.mibasededatos.view.ClienteActivity;
-import com.example.mibasededatos.view.ConsultarActivity;
+import com.example.mibasededatos.R;
 
 public class PrincipalActivity extends AppCompatActivity {
     /*private EditText mEditTextTitulo;
@@ -48,7 +46,7 @@ public class PrincipalActivity extends AppCompatActivity {
         mButtonConsultar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ConsultarActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ConsultarAdeudosAdeudosActivity.class);
                 startActivity(intent);
             }
         });
